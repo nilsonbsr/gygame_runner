@@ -8,8 +8,8 @@ pygame.display.set_caption("Runner")
 # clock object helps us with time and frame rate
 clock = pygame.time.Clock()
 # display surface and regular surface (screen) has lots of in common and we display it in while True
-test_surface = pygame.Surface((100, 200))
-test_surface.fill('Red ')
+sky_surface = pygame.image.load('graphics/Sky.png')
+ground_surface = pygame.image.load('graphics/ground.png')
 
 
 while True:
@@ -26,6 +26,7 @@ while True:
     pygame.display.update()
     # attach test_surface to display surface
     # blit stands for block instance transfer it takes 2 arguments the surface we want to place and the position
-    screen.blit(test_surface, (200,100))
+    screen.blit(sky_surface, (0,0))
+    screen.blit(ground_surface, (0,300))
     # this 60 tells that this while True loop should not run faster than 60 fps
     clock.tick(60)
