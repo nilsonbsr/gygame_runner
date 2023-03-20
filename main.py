@@ -19,7 +19,7 @@ ground_surf = pygame.image.load('graphics/ground.png').convert_alpha()
 snail_surf = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
 #snail_x_pos = 600
 # render(text, AA, color) AA means anti-aliasing which basically means we are going to smooth the edges of the text
-score_surf = test_font.render('My game', False, 'Black')
+score_surf = test_font.render('My game', False, (64, 64, 64))
 # we position our text in the center of the screen
 score_rect = score_surf.get_rect(center = (400, 50))
 
@@ -40,9 +40,10 @@ while True:
             exit()
         # this would give us a mouse position and will only triggerd if we moved the mouse
         #if event.type == pygame.MOUSEMOTION:
-         #   if player_rect.collidepoint(event.pos):
-          #      print('Collision')
-
+        #   if player_rect.collidepoint(event.pos):
+        #      print('Collision')
+        #if event.type == pygame.MOUSEBUTTONDOWN:
+        #    print('mouse down')
 
     # draw all our elements
 
@@ -52,9 +53,9 @@ while True:
     screen.blit(ground_surf, (0, 300))
     # with the draw module we draw a certain thing in our case rectangle
     # we need to specify where we want to draw, color and finally the actual rectangle we want to draw
-    pygame.draw.rect(screen, 'Pink',  score_rect)
-    pygame.draw.rect(screen, 'Pink',  score_rect, 10)
-    
+    pygame.draw.rect(screen, '#c0e8ec',  score_rect)
+    pygame.draw.rect(screen, '#c0e8ec',  score_rect, 10)
+
     screen.blit(score_surf, score_rect)
     # making animation by changing the position of our variable
     # snail_x_pos -= 4
@@ -75,10 +76,12 @@ while True:
     # we are taking the player surface and replace it of position of the rectangle
     screen.blit(player_surf, player_rect)
 
-    # collision
-   # mouse_pos = pygame.mouse.get_pos()
-   # if player_rect.collidepoint(mouse_pos):
-    #    print(pygame.mouse.get_pressed())
+        # collision
+     # this method gives us the position of the mouse
+     # mouse_pos = pygame.mouse.get_pos()
+     # if player_rect.collidepoint(mouse_pos):
+     #    print(pygame.mouse.get_pressed())
+     #     print(pygame.mouse.get_pressed())
 
 
 
